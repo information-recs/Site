@@ -71,7 +71,7 @@ body.sec-open .hud.tl,body.sec-open .hud.tr{opacity:0}
 background:repeating-linear-gradient(transparent 0 2px,rgba(0,0,0,.22) 2px 3px),radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.65) 100%);
 animation:flick 5s infinite}
 @keyframes flick{0%,100%{opacity:1}50%{opacity:.93}52%{opacity:1}}
-#panel{position:absolute;inset:40px 16px 90px;z-index:5;display:none;flex-direction:column;
+#panel{position:absolute;inset:14px 16px 90px;z-index:5;display:none;flex-direction:column;
 background:rgba(2,9,6,.95);border:1px solid var(--teal-dim);box-shadow:0 0 40px rgba(77,255,200,.14),inset 0 0 50px rgba(77,255,200,.05)}
 #panel.on{display:flex;animation:crton .4s ease-out}
 @keyframes crton{0%{transform:scaleY(.01);filter:brightness(5)}55%{transform:scaleY(1.02);filter:brightness(2)}100%{transform:none}}
@@ -116,14 +116,11 @@ font-family:var(--head);letter-spacing:.3em;font-size:13px;color:var(--teal);tex
 .np{margin-top:16px}.np .pl-art{flex-basis:116px;width:116px;height:116px}
 .np .pl-title{font-size:21px;white-space:normal;line-height:1.1}
 .np .pl-sub{font-size:12px}
-.vol{display:flex;gap:10px;align-items:center;margin-top:12px}
-.vol input{flex:1;accent-color:var(--teal)}
 .tl-row{display:flex;gap:14px;align-items:center;width:100%;padding:11px 8px;background:none;border:0;border-bottom:1px solid #123a2e;text-align:left;color:inherit;font:inherit}
 .tl-row:hover{background:rgba(77,255,200,.07)}
 .tl-row.on{background:rgba(77,255,200,.1)}.tl-row.on .tl-n{color:var(--teal)}
 body.sc-playing .pl-fill{background:linear-gradient(#f07a40,#b24415)}
 body.sc-playing .tl-row.on{background:rgba(224,100,44,.14)}body.sc-playing .tl-row.on .tl-n{color:#f07a40}
-body.sc-playing .vol input{accent-color:#f07a40}
 .tl-n{font-family:var(--head);color:var(--teal);letter-spacing:.1em}
 #dock{position:absolute;left:16px;right:16px;bottom:14px;height:62px;z-index:6;display:flex;align-items:center;gap:14px;padding:7px 12px;
 background:rgba(2,9,6,.9);border:1px solid var(--teal-dim);box-shadow:0 0 24px rgba(77,255,200,.12),inset 0 0 30px rgba(77,255,200,.04)}
@@ -187,7 +184,7 @@ mix-blend-mode:overlay;opacity:calc(.5*var(--tex))}
 #side{grid-column:1;grid-row:3}
 .nav{padding:20px 2px 16px;font-size:11px}
 #nav{grid-template-columns:repeat(4,1fr)}
-#panel{inset:34px 8px 78px}
+#panel{inset:10px 8px 78px}
 #dock{left:8px;right:8px;bottom:8px;gap:10px;height:56px}#dock .mt{max-width:none}
 .dprog{position:absolute;left:0;right:0;top:-1px;flex:none;min-width:0}.dprog .pl-bar{height:5px;margin:0;border:0}.dprog .mc{display:none}
 .hud{font-size:clamp(8px,2.4vw,11px);letter-spacing:.05em}
@@ -199,7 +196,7 @@ mix-blend-mode:overlay;opacity:calc(.5*var(--tex))}
 #dock .pl-art{display:none}#dock{padding:6px 10px}
 #dock .ctl{gap:4px}#dock .pbtn{width:34px;height:30px}#dock .pbtn.main{width:44px}
 .pl-title{font-size:12px}
-body.nodock #panel{inset:34px 8px 8px}
+body.nodock #panel{inset:10px 8px 8px}
 .row{gap:10px}.cover{flex-basis:60px;height:60px}.date{flex-basis:66px;font-size:26px}
 }
 @media (prefers-reduced-motion:reduce){*{animation-duration:0s!important}}
@@ -303,13 +300,12 @@ const views = {
       <div data-pane="up">${eventRows(up)}</div><div data-pane="ar" hidden>${eventRows(ar)}</div>`;
   },
   program(){
-    if (!window.SC) { const u = encodeURIComponent(CONFIG.soundcloud);
-      return `<iframe class="sc" title="Information Program on SoundCloud" scrolling="no" frameborder="0" allow="autoplay" src="https://w.soundcloud.com/player/?url=${u}&color=%234dffc8&auto_play=false&hide_related=true&show_comments=false&visual=false"></iframe>
-      <p style="margin-top:10px"><a href="${CONFIG.soundcloud}" target="_blank" rel="noopener">open on soundcloud</a></p>`; }
+    if (!window.SC) return `<p class="meta" style="margin-top:14px">Information Program — mix series</p>
+      <p style="margin:12px 0;line-height:1.6;max-width:52ch">Loading the player. If it doesn't appear, your browser or an ad blocker may be blocking SoundCloud. You can listen directly on SoundCloud instead.</p>
+      <p><a href="${CONFIG.soundcloud}" target="_blank" rel="noopener">listen on soundcloud</a></p>`;
     return `<div class="np"><img class="pl-art" alt="" onerror="this.style.visibility='hidden'"><div class="mt"><div class="meta">Information Program — mix series</div><div class="pl-title" style="margin-top:6px"></div><div class="pl-sub"></div></div></div>
       <div class="pl-bar"><i class="pl-fill"></i></div>
       <div class="mc"><span class="pl-time">0:00</span><div class="ctl"><button class="pbtn" data-pl="prev" aria-label="Previous"></button><button class="pbtn main" data-pl="toggle" aria-label="Play or pause"></button><button class="pbtn" data-pl="next" aria-label="Next"></button></div><span class="pl-dur">0:00</span></div>
-      <div class="vol"><span class="meta">Vol</span><input type="range" id="scvol" min="0" max="100" value="80" aria-label="Volume"></div>
       <div class="label" style="margin-top:22px">Tracklist</div><div id="tracklist">${trackRows()}</div>
       <p style="margin-top:14px"><a href="${CONFIG.soundcloud}" target="_blank" rel="noopener">open on soundcloud</a></p>`;
   },
@@ -330,7 +326,7 @@ function openSection(key){
   document.querySelectorAll('.nav').forEach(n => n.classList.toggle('on', n.dataset.open===key));
   document.querySelectorAll('.blip').forEach(n => n.classList.toggle('on', n.dataset.open===key));
 
-  if (key==='program' && window.SC){ updatePlayer(); const v = $('#scvol'); if (v) v.oninput = e => scw && scw.setVolume(+e.target.value); }
+  if (key==='program' && window.SC){ updatePlayer(); }
   if (key==='events') document.querySelectorAll('.tab').forEach(b => b.onclick = () => {
     document.querySelectorAll('.tab').forEach(x => x.classList.toggle('on', x===b));
     document.querySelectorAll('[data-pane]').forEach(p => p.hidden = p.dataset.pane!==b.dataset.t);
@@ -401,6 +397,7 @@ function scInit(){
   const f = $('#scf');
   f.src = 'https://w.soundcloud.com/player/?url=' + encodeURIComponent(CONFIG.soundcloud) + '&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false';
   scw = SC.Widget(f);
+  if (current === 'program'){ $('#pbody').innerHTML = views.program(); updatePlayer(); }
   scw.bind(SC.Widget.Events.READY, () => scw.getSounds(list => {
     SCP.sounds = list || []; SCP.ready = true; if (SCP.sounds.length) SCP.idx = defaultIdx();
     const t = $('#tracklist'); if (t) t.innerHTML = trackRows();
