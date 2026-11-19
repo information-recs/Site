@@ -150,13 +150,6 @@ body.nodock .hud.bl,body.nodock .hud.br{bottom:12px}
 .big{font-family:var(--head);font-weight:700;font-size:30px;letter-spacing:.12em;text-transform:uppercase;color:#effff8;margin:14px 0 6px}
 #side{grid-column:2;grid-row:2;display:flex;flex-direction:column;gap:10px;min-height:0}
 #side .bezel{flex:0 0 auto}
-.sysrow{display:flex;gap:8px}
-.sysbtn{flex:1;font-family:var(--head);font-size:12px;letter-spacing:.2em;text-transform:uppercase;padding:7px 0;
-background:linear-gradient(#3a4138,#1a1e18);border:1px solid #556050;border-radius:4px;box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 2px 4px #000;color:#c9d6c4}
-.sysbtn.on:hover{color:var(--teal)}
-.sysbtn.on{color:var(--teal);box-shadow:inset 0 0 12px rgba(77,255,200,.25),0 2px 4px #000}
-.sysbtn:not(.on){color:#ff6a5c;background:linear-gradient(#4a2420,#241210);border-color:#8a3a30;box-shadow:inset 0 0 14px rgba(255,59,47,.3),0 0 10px rgba(255,59,47,.18),0 2px 4px #000}
-.sysbtn:not(.on):hover{color:#ff8a7e;box-shadow:inset 0 0 16px rgba(255,59,47,.4),0 0 14px rgba(255,59,47,.3),0 2px 4px #000}
 #nav{display:grid;grid-template-columns:1fr;gap:8px}
 .nav{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px;padding:20px 4px 18px;border-radius:6px;
 font-family:var(--head);font-weight:700;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#b9c9b4;
@@ -243,7 +236,6 @@ body.nodock #panel{inset:34px 8px 8px}
   </section>
 
   <aside id="side">
-    <div class="bezel"><div class="sysrow"><button class="sysbtn" id="snd">Sound: off</button></div></div>
     <div class="bezel">
       <div id="nav">
         <button class="nav" data-open="releases"><b>01</b>Releases</button>
@@ -290,8 +282,6 @@ const nc = $('#noise'), nx = nc.getContext('2d'), img = nx.createImageData(180,1
   const d = img.data; for (let i=0;i<d.length;i+=4){ const v = Math.random()*255; d[i]=d[i+1]=d[i+2]=v; d[i+3]=60; }
   nx.putImageData(img,0,0); setTimeout(()=>requestAnimationFrame(noise),70);
 })();
-
-$('#snd').onclick = () => { if (scw && SCP.playing) scw.pause(); else scPlayDefault(); };
 
 const MONTHS = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
 function eventRows(list){
@@ -378,7 +368,6 @@ function updateProgress(){
 }
 function updatePlayer(){
   document.body.classList.toggle('sc-playing', !!SCP.playing);
-  const sb = $('#snd'); sb.textContent = 'Sound: ' + (SCP.playing ? 'on' : 'off'); sb.classList.toggle('on', !!SCP.playing);
   const s = SCP.sounds[SCP.idx];
   document.querySelectorAll('.pl-title').forEach(e => e.textContent = s ? (s.title || 'Mix ' + pad(SCP.idx+1)) : (SCP.ready ? 'Program' : 'Loading set...'));
   document.querySelectorAll('.pl-sub').forEach(e => e.textContent = s ? ((s.user && s.user.username) || 'Information') + ' · ' + (SCP.idx+1) + ' / ' + SCP.sounds.length : 'Information Program');
