@@ -53,7 +53,7 @@ background-size:56px 56px;opacity:.18;transform:perspective(380px) rotateX(68deg
 -webkit-mask-image:linear-gradient(transparent,#000 40%);mask-image:linear-gradient(transparent,#000 40%)}
 @keyframes grid{to{background-position:0 56px}}
 #glow{position:absolute;inset:0;background:radial-gradient(circle at 50% 52%,rgba(77,255,200,.13),transparent 55%)}
-#hub{position:absolute;inset:0 0 80px 0;display:grid;place-items:center;pointer-events:none}
+#hub{position:absolute;inset:0 0 80px 0;display:flex;align-items:center;justify-content:center;pointer-events:none}
 #logo{position:relative;height:84%;aspect-ratio:563/1000;max-width:80%;animation:glitch 6s infinite steps(1)}
 #logo img{width:100%;height:100%;object-fit:contain;display:block;filter:drop-shadow(0 0 26px rgba(224,100,44,.3))}
 @keyframes glitch{0%,92%,100%{transform:none;clip-path:none}93%{transform:translate(-6px,2px) skewX(6deg)}94%{transform:translate(5px,-2px);clip-path:inset(40% 0 20% 0)}95%{transform:translate(-3px,0);clip-path:inset(10% 0 60% 0)}96%{transform:none;clip-path:none}}
@@ -186,6 +186,7 @@ mix-blend-mode:overlay;opacity:calc(.5*var(--tex));animation:grain .7s steps(1) 
 .tx-blot{inset:0;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><filter id='b'><feTurbulence type='fractalNoise' baseFrequency='.012' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='matrix' values='.33 .33 .33 0 0  .33 .33 .33 0 0  .33 .33 .33 0 0  0 0 0 0 1'/></filter><rect width='100%' height='100%' filter='url(%23b)'/></svg>") 0 0/600px 600px;
 mix-blend-mode:overlay;opacity:calc(.5*var(--tex))}
 @keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-1%)}80%{transform:translate(3%,3%)}}
+@supports (height:100dvh){#app{bottom:auto;height:100dvh}}
 @media (max-width:860px){
 .tx-mag,.tx-cyan{display:none}
 #app{grid-template-columns:minmax(0,1fr);grid-template-rows:28px minmax(0,1fr) auto;padding:6px;gap:6px}
@@ -196,8 +197,15 @@ mix-blend-mode:overlay;opacity:calc(.5*var(--tex))}
 #panel{inset:34px 8px 78px}
 #dock{left:8px;right:8px;bottom:8px;gap:10px;height:56px}#dock .mt{max-width:none}
 .dprog{position:absolute;left:0;right:0;top:-1px;flex:none;min-width:0}.dprog .pl-bar{height:5px;margin:0;border:0}.dprog .mc{display:none}
-.hud.bl,.hud.br{bottom:72px}
-#wordmark{bottom:72px;right:14px;width:62px}
+.hud{font-size:clamp(8px,2.4vw,11px);letter-spacing:.05em}
+.hud.tl{left:12px;top:30px}.hud.tr{right:12px;top:30px}
+.hud.bl{display:none}
+#hub{inset:46px 0 78px 0}
+#logo{height:100%}
+#wordmark{bottom:76px;right:12px;width:50px}
+#dock .pl-art{display:none}#dock{padding:6px 10px}
+#dock .ctl{gap:4px}#dock .pbtn{width:34px;height:30px}#dock .pbtn.main{width:44px}
+.pl-title{font-size:12px}
 body.nodock #panel{inset:34px 8px 8px}
 .row{gap:10px}.cover{flex-basis:60px;height:60px}.date{flex-basis:66px;font-size:26px}
 }
@@ -255,7 +263,7 @@ const CONFIG = {
   email: "information.recs@gmail.com",
   ig: {handle:"@information.program", url:"https://instagram.com/information.program"},
   soundcloud: "https://soundcloud.com/information-recs/sets/information-program",
-  about: "Information is a New York / Los Angeles bi-coastal record label and DIY party series. We believe in stretching the idea of dance-floor ready dance music into deeper and weirder territory.",
+  about: "Information is a New York / Los Angeles bi-coastal record label and DIY party series. We believe in stretching the idea of dance-floor ready music into deeper and weirder territory.",
   // Events: loaded from events.json (same folder); this copy is the fallback if that file can't be read.
   events: [{"id": "2576226", "date": "2026-12-04", "title": "Information - All Vinyl Night: DJ TOOL (4 hour set) + Daura + Yessi", "venue": "TBA - Secret Location DTLA", "city": "Los Angeles", "artists": ["DJ TOOL", "Daura", "Yessi"], "link": "https://ra.co/events/2576226", "flyer": "https://images.ra.co/2b4745395ab828180b99e3cc86e1a463df8e46b8.jpg"}, {"id": "2570976", "date": "2026-11-14", "title": "Information Open Air: Caim + Kurilo + Naomi Green + Slip", "venue": "TBA - Open Air Venue", "city": "Los Angeles", "artists": ["Caim", "Kurilo", "Naomi Green", "Slip"], "link": "https://ra.co/events/2570976", "flyer": "https://images.ra.co/dca064c8fbab1f994e39ad67475a391488825e53.png"}, {"id": "2566962", "date": "2026-11-06", "title": "Information: Shakolin + 98dots + Kana Hishiya", "venue": "TBA - Secret Location DTLA", "city": "Los Angeles", "artists": ["Shakolin", "98dots", "Kana Hishiya"], "link": "https://ra.co/events/2566962", "flyer": "https://images.ra.co/510f54b0b3daa37401e7058b5ffdab851c31dec1.png"}, {"id": "2538349", "date": "2026-10-16", "title": "Information: Que Sakamoto + Bambi + Screeb", "venue": "TBA - Goo People", "city": "Los Angeles", "artists": ["Que Sakamoto", "Bambi (FR)", "Screeb"], "link": "https://ra.co/events/2538349", "flyer": "https://images.ra.co/d8c43545a1ed4faeb82291c24f1cf7ba028159aa.jpg"}, {"id": "2536808", "date": "2026-10-10", "title": "Information: Kuba'97 (US Debut) + Amelia Holt + Jek b2b djfix + Screeb", "venue": "TBA - Outdoor Gathering", "city": "New York City", "artists": ["Kuba'97", "Amelia Holt", "Jek (US)", "djfix", "Screeb"], "link": "https://ra.co/events/2536808", "flyer": "https://images.ra.co/09e412b3d4ec60b9e9544d70687bf304b50aa04d.jpg"}, {"id": "2533953", "date": "2026-09-27", "title": "Information: Agonis + Slip", "venue": "TBA - NOTHING USUAL", "city": "Los Angeles", "artists": ["Agonis", "Slip"], "link": "https://ra.co/events/2533953", "flyer": "https://images.ra.co/0270f2be7f05f9e86ea5f4e4655726cbb1b6fa5d.jpg"}, {"id": "2456585", "date": "2026-07-18", "title": "Information - All Vinyl Night w/ Taylor Shockley + Luke Mele + CHOíCE", "venue": "TBA - Downtown LA", "city": "Los Angeles", "artists": ["Taylor Shockley", "Luke Mele", "CHOíCE"], "link": "https://ra.co/events/2456585", "flyer": "https://images.ra.co/e532bad69e2819cca2325b23ac65d8fb72e371dc.jpg"}, {"id": "2456580", "date": "2026-06-27", "title": "Information - All Vinyl Night w/ Shakolin + Slip", "venue": "TBA - Secret Location DTLA", "city": "Los Angeles", "artists": ["Shakolin", "Slip"], "link": "https://ra.co/events/2456580", "flyer": "https://images.ra.co/e9499fff6c94f3bdfe33e1c928416dda2d421cec.jpg"}, {"id": "2435630", "date": "2026-05-07", "title": "Substrate / NotUs / Wellness Residents", "venue": "TBA - NothingUsual", "city": "Los Angeles", "artists": ["Cron", "Slip", "pollensource", "Mirror Image"], "link": "https://ra.co/events/2435630", "flyer": "https://images.ra.co/d3150ed9d63d71d12e2deb43fe4e4c28951a2d38.jpg"}, {"id": "2356019", "date": "2026-04-25", "title": "Information: Tadan + K.O.P. 32 (Live) + Lychee + Gbar (Live)", "venue": "TBA - Forest Gathering in Queens", "city": "New York City", "artists": ["Tadan", "Pyramid of Knowledge", "Lychee", "Gbar"], "link": "https://ra.co/events/2356019", "flyer": "https://images.ra.co/5a65177ceb242fc40a0fe4e9f84a1ac6eb856204.jpg"}, {"id": "2356012", "date": "2026-04-17", "title": "Information: Tadan + K.O.P. 32 (Live) + agraybé + straye", "venue": "TBA - DTLA", "city": "Los Angeles", "artists": ["Tadan", "Pyramid of Knowledge", "agraybé", "straye"], "link": "https://ra.co/events/2356012", "flyer": "https://images.ra.co/f224e9fbd3cae84650b3d66aa8f4323a41da731a.jpg"}, {"id": "2378097", "date": "2026-04-04", "title": "Information: Al Wootton + sysk + Slip b2b Screeb", "venue": "TBA - Secret Location DTLA", "city": "Los Angeles", "artists": ["Al Wootton", "sysk", "Slip", "Screeb"], "link": "https://ra.co/events/2378097", "flyer": "https://images.ra.co/7763a4671c14917dcf934f224aabdbb013b4be79.png"}, {"id": "2350421", "date": "2026-03-07", "title": "Information: Sybil (UK) Marius Bø 98dots Jane Margarette", "venue": "TBA - Secret Location DTLA", "city": "Los Angeles", "artists": ["Sybil", "Marius Bø", "98dots", "Jane Margarette"], "link": "https://ra.co/events/2350421", "flyer": "https://images.ra.co/bae46ca1c41f4fbe8203988c69329ffc0b1c6250.png"}]
 };
@@ -380,7 +388,7 @@ function updatePlayer(){
   updateProgress();
 }
 // Default sound: the first mix (001 / Slip). Matches by title, falls back to the first track in the set.
-function defaultIdx(){ const k = SCP.sounds.findIndex(s => /\b001\b|slip/i.test(s.title || '')); return k >= 0 ? k : 0; }
+function defaultIdx(){ const k = SCP.sounds.findIndex(s => /(?:^|[^0-9])0{0,2}1(?![0-9])|slip/i.test(s.title || '')); return k >= 0 ? k : 0; }
 function scPlayDefault(){
   if (!scw || !SCP.ready){ SCP.wantPlay = true; return; }
   SCP.wantPlay = false;
