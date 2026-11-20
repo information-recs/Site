@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>INFORMATION</title>
+<meta name="description" content="Information is a New York / Los Angeles bi-coastal record label and DIY party series.">
+<meta name="theme-color" content="#050806">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Information">
+<meta property="og:description" content="New York / Los Angeles bi-coastal record label and DIY party series.">
+<meta property="og:image" content="og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="logo-spin.webp" type="image/webp">
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#050806; --metal1:#2c322b; --metal2:#131712; --edge:#434c41;
+--teal:#4dffc8; --teal-dim:#1c7a60; --teal-txt:#bdeedd; --rust:#e0642c; --red:#ff3b2f; --bone:#e6e0c8;
+--head:'Chakra Petch','Arial Narrow',sans-serif; --mono:'Share Tech Mono','Courier New',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
+html,body{height:100%;overflow:hidden;background:#020302;color:var(--teal-txt);font-family:var(--mono);font-size:15px}
+button{font:inherit;color:inherit;cursor:pointer}
+a{color:var(--teal);text-decoration:none;border-bottom:1px solid var(--teal-dim)}
+a:hover{background:var(--teal);color:#021a12}
+#app{position:fixed;inset:0;padding:10px;display:grid;gap:10px;
+grid-template-columns:minmax(0,1fr) 250px;grid-template-rows:34px minmax(0,1fr);
+background:radial-gradient(ellipse at 50% 0,#1b211a,#080a08 70%)}
+#top{grid-column:1/3;display:flex;justify-content:space-between;align-items:center;padding:0 14px;
+font-family:var(--head);letter-spacing:.3em;font-size:13px;color:#8a9a86;text-transform:uppercase}
+#top b{color:var(--teal);font-weight:700}
+#home{background:none;border:0;padding:6px 8px;margin:-6px -8px;font:inherit;letter-spacing:inherit;text-transform:inherit;color:inherit;display:inline-flex;align-items:center;cursor:pointer}
+#home:hover b,#home:focus-visible b{color:#effff8}
+#home:focus-visible{outline:1px solid var(--teal-dim)}
+.led{display:inline-block;width:9px;height:9px;border-radius:50%;background:#ff6a5c;box-shadow:0 0 8px rgba(255,59,47,.8);margin-right:10px;animation:led 2s infinite}
+@keyframes led{50%{opacity:.35}}
+.bezel{position:relative;padding:10px;border-radius:8px;border:1px solid var(--edge);
+background:linear-gradient(150deg,var(--metal1),var(--metal2));
+box-shadow:inset 0 1px 0 rgba(255,255,255,.10),inset 0 0 0 4px #0b0d0a,inset 0 0 0 5px #2a3028,0 8px 24px rgba(0,0,0,.65)}
+.label{font-family:var(--head);font-size:11px;letter-spacing:.3em;color:#7d8c79;text-transform:uppercase;margin-bottom:6px}
+#view{grid-column:1;grid-row:2}
+.screen{position:relative;height:100%;overflow:hidden;border-radius:4px;background:#030504;
+box-shadow:inset 0 0 0 1px #000,inset 0 0 60px rgba(0,0,0,.9),0 0 0 1px #1a211a}
+#grid{position:absolute;left:-60%;right:-60%;top:58%;height:80%;
+background-image:linear-gradient(rgba(77,255,200,.55) 1px,transparent 1px),linear-gradient(90deg,rgba(77,255,200,.55) 1px,transparent 1px);
+background-size:56px 56px;opacity:.18;transform:perspective(380px) rotateX(68deg);animation:grid 3s linear infinite;
+-webkit-mask-image:linear-gradient(transparent,#000 40%);mask-image:linear-gradient(transparent,#000 40%)}
+@keyframes grid{to{background-position:0 56px}}
+#glow{position:absolute;inset:0;background:radial-gradient(circle at 50% 52%,rgba(77,255,200,.13),transparent 55%)}
+#hub{position:absolute;inset:0 0 80px 0;display:flex;align-items:center;justify-content:center;pointer-events:none}
+#logo{position:relative;height:84%;aspect-ratio:563/1000;max-width:80%;animation:glitch 6s infinite steps(1)}
+#logo img{width:100%;height:100%;object-fit:contain;display:block;filter:drop-shadow(0 0 26px rgba(224,100,44,.3))}
+@keyframes glitch{0%,92%,100%{transform:none;clip-path:none}93%{transform:translate(-6px,2px) skewX(6deg)}94%{transform:translate(5px,-2px);clip-path:inset(40% 0 20% 0)}95%{transform:translate(-3px,0);clip-path:inset(10% 0 60% 0)}96%{transform:none;clip-path:none}}
+#wordmark{position:absolute;right:14px;bottom:12px;width:clamp(72px,8vw,108px);height:auto;color:var(--teal);opacity:.5;pointer-events:none;z-index:2;filter:drop-shadow(0 0 6px rgba(77,255,200,.35))}
+.hud{position:absolute;font-size:12px;letter-spacing:.2em;color:var(--teal);opacity:.8;text-transform:uppercase;pointer-events:none}
+.hud{transition:opacity .25s}
+body.sec-open .hud.tl,body.sec-open .hud.tr{opacity:0}
+.hud.tl{left:14px;top:10px}.hud.tr{right:14px;top:10px;text-align:right}
+.hud.bl{left:14px;bottom:86px}.hud.br{right:14px;bottom:86px;text-align:right}
+.rec{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--red);margin-right:6px;animation:led 1s infinite}
+.hud i{position:absolute;width:16px;height:16px;border:2px solid var(--teal);opacity:.7}
+@keyframes blink{50%{opacity:.2}}
+#noise{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;mix-blend-mode:overlay;opacity:.45;z-index:8}
+.crt{position:absolute;inset:0;pointer-events:none;z-index:9;
+background:repeating-linear-gradient(transparent 0 2px,rgba(0,0,0,.22) 2px 3px),radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.65) 100%);
+animation:flick 5s infinite}
+@keyframes flick{0%,100%{opacity:1}50%{opacity:.93}52%{opacity:1}}
+#panel{position:absolute;inset:14px 16px 90px;z-index:5;display:none;flex-direction:column;
+background:rgba(2,9,6,.95);border:1px solid var(--teal-dim);box-shadow:0 0 40px rgba(77,255,200,.14),inset 0 0 50px rgba(77,255,200,.05)}
+#panel.on{display:flex;animation:crton .4s ease-out}
+@keyframes crton{0%{transform:scaleY(.01);filter:brightness(5)}55%{transform:scaleY(1.02);filter:brightness(2)}100%{transform:none}}
+.ph{display:flex;justify-content:space-between;align-items:center;padding:7px 12px;border-bottom:1px solid var(--teal-dim);
+font-family:var(--head);letter-spacing:.3em;font-size:13px;color:var(--teal);text-transform:uppercase;background:rgba(77,255,200,.06)}
+.ph button{background:rgba(255,59,47,.08);border:1px solid #8a3a30;color:#ff6a5c;width:28px;height:28px;padding:0;display:grid;place-items:center;font-family:var(--head);font-size:15px;line-height:1;letter-spacing:0}
+.ph button:hover{background:#ff3b2f;border-color:#ff3b2f;color:#fff}
+.pb{flex:1;overflow:auto;padding:6px 18px 18px;scrollbar-width:thin;scrollbar-color:var(--teal-dim) transparent}
+.row{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid #123a2e;align-items:center}
+.row:last-child{border:0}
+.row h3{font-family:var(--head);font-weight:700;font-size:19px;letter-spacing:.08em;text-transform:uppercase;color:#effff8;line-height:1.1}
+.row p{margin-top:3px}
+.meta{color:#5fae96;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+.date{flex:0 0 84px;text-align:center;border:1px solid var(--rust);color:var(--rust);padding:8px 0;font-family:var(--head);font-weight:700;font-size:32px;line-height:.9;background:rgba(224,100,44,.07)}
+.date small{display:block;font-size:11px;letter-spacing:.2em;margin-top:5px;font-weight:500}
+.gal{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:16px;padding-top:16px}
+.card{display:block;border:1px solid var(--teal-dim);background:#040a07;color:inherit;border-bottom:1px solid var(--teal-dim);transition:.2s}
+.card:hover{background:#040a07;color:inherit;box-shadow:0 0 18px rgba(77,255,200,.35);transform:translateY(-3px)}
+.fly{aspect-ratio:4/5;background:#0a120e;overflow:hidden;position:relative;display:grid;place-items:center;color:var(--teal-dim);font-family:var(--head);letter-spacing:.2em}
+.fly img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.85) contrast(1.05)}
+.fly::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(transparent 0 2px,rgba(0,0,0,.2) 2px 3px);pointer-events:none}
+.card:hover .fly img{filter:none}
+.cap{padding:9px 10px 11px;display:grid;gap:3px}
+.cap b{font-family:var(--head);color:var(--rust);letter-spacing:.14em;font-size:13px}
+.cap span{color:#effff8;font-size:14px;line-height:1.25}
+.cap em{font-style:normal;color:#5fae96;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+#scf{position:fixed;left:-400px;top:0;width:300px;height:166px;border:0;opacity:0;pointer-events:none}
+.mp,.np{display:flex;gap:12px;align-items:center}
+.pl-art{flex:0 0 52px;width:52px;height:52px;object-fit:cover;border:1px solid var(--teal-dim);background:#0a120e;display:block}
+.mt{min-width:0;flex:1}
+.pl-title{font-family:var(--head);font-weight:700;font-size:13px;letter-spacing:.06em;color:#effff8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;text-transform:uppercase}
+.pl-sub{font-size:11px;letter-spacing:.14em;color:#5fae96;text-transform:uppercase;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pl-bar{height:12px;margin:12px 0 8px;background:#050806;border:1px solid #2d352c;cursor:pointer}
+.pl-fill{display:block;height:100%;width:0;background:linear-gradient(#6dffd6,#2fcba0);-webkit-mask:repeating-linear-gradient(90deg,#000 0 5px,transparent 5px 7px);mask:repeating-linear-gradient(90deg,#000 0 5px,transparent 5px 7px)}
+.mc{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12px;color:#8a9a86;font-variant-numeric:tabular-nums}
+.ctl{display:flex;gap:6px}
+.pbtn{width:38px;height:32px;border-radius:4px;border:1px solid #556050;background:linear-gradient(#3a4138,#1a1e18);box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 2px 4px #000;display:grid;place-items:center;color:var(--teal)}
+.pbtn svg{width:15px;height:15px;fill:currentColor}
+.pbtn:hover{box-shadow:0 0 12px rgba(77,255,200,.4),inset 0 1px 0 rgba(255,255,255,.12)}
+.pbtn.main{width:50px;color:#021a12;background:linear-gradient(#6dffd6,#2fcba0);border-color:#9affe3}
+.pbtn.main.playing{background:linear-gradient(#f07a40,#b24415);color:#fff;border-color:#ffb08a}
+.np{margin-top:16px}.np .pl-art{flex-basis:116px;width:116px;height:116px}
+.np .pl-title{font-size:21px;white-space:normal;line-height:1.1}
+.np .pl-sub{font-size:12px}
+.tl-row{display:flex;gap:14px;align-items:center;width:100%;padding:11px 8px;background:none;border:0;border-bottom:1px solid #123a2e;text-align:left;color:inherit;font:inherit}
+.tl-row:hover{background:rgba(77,255,200,.07)}
+.tl-row.on{background:rgba(77,255,200,.1)}.tl-row.on .tl-n{color:var(--teal)}
+body.sc-playing .pl-fill{background:linear-gradient(#f07a40,#b24415)}
+body.sc-playing .tl-row.on{background:rgba(224,100,44,.14)}body.sc-playing .tl-row.on .tl-n{color:#f07a40}
+.tl-n{font-family:var(--head);color:var(--teal);letter-spacing:.1em}
+#dock{position:absolute;left:16px;right:16px;bottom:14px;height:62px;z-index:6;display:flex;align-items:center;gap:14px;padding:7px 12px;
+background:rgba(2,9,6,.9);border:1px solid var(--teal-dim);box-shadow:0 0 24px rgba(77,255,200,.12),inset 0 0 30px rgba(77,255,200,.04)}
+#dock .pl-art{flex:0 0 44px;width:44px;height:44px}
+#dock .mt{flex:1 1 150px;max-width:280px}
+.dprog{flex:1 1 200px;min-width:90px}
+.dprog .pl-bar{margin:0 0 5px}
+.dprog .mc{justify-content:space-between}
+body.nodock #dock{display:none}
+body.nodock #panel{bottom:16px}
+body.nodock .hud.bl,body.nodock .hud.br{bottom:12px}
+.soon{min-height:55%;display:grid;place-content:center;text-align:center;gap:10px;padding:60px 0}
+.soon-t{font-family:var(--head);font-weight:700;font-size:clamp(26px,5vw,44px);letter-spacing:.35em;padding-left:.35em;color:var(--teal);animation:blink 1.6s steps(2) infinite}
+.about{display:flex;flex-wrap:wrap;gap:24px 32px;align-items:flex-start;padding-top:16px}
+.clip{flex:0 0 auto;width:min(280px,100%);margin:0}
+.clip img{display:block;width:100%;height:auto;border:1px solid var(--teal-dim);box-shadow:0 0 22px rgba(77,255,200,.12)}
+.clip figcaption{margin-top:8px;font-family:var(--head);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--teal)}
+.about-txt{flex:1 1 260px;min-width:0}
+.about-txt .big{margin-top:0}
+.tabs{display:flex;gap:6px;margin:12px 0 0}
+.tab{font-family:var(--head);letter-spacing:.25em;text-transform:uppercase;font-size:12px;padding:5px 14px;background:linear-gradient(#2e342c,#171b15);border:1px solid #4a5446;color:#8fa08b}
+.tab.on{color:#021a12;background:var(--teal);border-color:var(--teal)}
+.sc{width:100%;height:min(440px,62vh);border:1px solid var(--teal-dim);display:block;background:#111;margin-top:12px}
+.big{font-family:var(--head);font-weight:700;font-size:30px;letter-spacing:.12em;text-transform:uppercase;color:#effff8;margin:14px 0 6px}
+#side{grid-column:2;grid-row:2;display:flex;flex-direction:column;gap:10px;min-height:0}
+#side .bezel{flex:0 0 auto}
+#nav{display:grid;grid-template-columns:1fr;gap:8px}
+.nav{position:relative;display:flex;flex-direction:column;align-items:center;gap:6px;padding:20px 4px 18px;border-radius:6px;
+font-family:var(--head);font-weight:700;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#b9c9b4;
+background:linear-gradient(#444c41,#1c211a);border:1px solid #5d6959;
+box-shadow:inset 0 1px 0 rgba(255,255,255,.18),inset 0 -3px 6px rgba(0,0,0,.5),0 3px 6px #000;transition:.15s}
+.nav b{position:absolute;left:8px;top:5px;font-size:10px;color:#6f7d6b;font-weight:500}
+.nav::after{content:"";position:absolute;right:8px;top:8px;width:6px;height:6px;border-radius:50%;background:#26301f}
+.nav:hover{color:var(--teal);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 0 14px rgba(77,255,200,.35),0 3px 6px #000}
+.nav.on{color:var(--teal);background:linear-gradient(#17261f,#0b130f);border-color:var(--teal-dim);
+box-shadow:inset 0 0 18px rgba(77,255,200,.28),0 0 0 1px #000}
+.nav.on::after,.nav:hover::after{background:#ff6a5c;box-shadow:0 0 8px rgba(255,59,47,.8)}
+.nav:active{transform:translateY(2px)}
+#intro{position:fixed;inset:0;z-index:300;background:#020302;display:grid;place-items:center;text-align:center;transition:opacity .7s}
+#intro.gone{opacity:0;pointer-events:none}
+#intro img{height:44vh;max-height:520px;width:auto;max-width:80vw;display:block;margin:0 auto;filter:drop-shadow(0 0 30px rgba(224,100,44,.25))}
+#enter{margin-top:26px;font-family:var(--head);font-size:20px;background:none;border:1px solid var(--teal);color:var(--teal);padding:9px 34px 8px calc(34px + .5em);line-height:1;letter-spacing:.5em;display:none;animation:blink 1.2s steps(2) infinite}
+#enter:hover{background:var(--teal);color:#021a12;animation:none}
+:root{--tex:1}
+#tex{display:contents}
+#tex i{position:fixed;display:block;pointer-events:none;z-index:400}
+.tx-soft{inset:0;-webkit-backdrop-filter:blur(.35px) contrast(1.06) saturate(1.08);backdrop-filter:blur(.35px) contrast(1.06) saturate(1.08)}
+.tx-dots{inset:-30%;background:radial-gradient(circle,rgba(0,0,0,.95) 0 .4px,transparent .9px) 0 0/2px 2px;mix-blend-mode:multiply;opacity:calc(.26*var(--tex));transform:rotate(15deg)}
+.tx-mag{inset:-30%;background:radial-gradient(circle,rgba(255,40,140,.9) 0 .4px,transparent .9px) 0 0/2.5px 2.5px;mix-blend-mode:overlay;opacity:calc(.25*var(--tex));transform:rotate(-8deg)}
+.tx-cyan{inset:-30%;background:radial-gradient(circle,rgba(0,220,255,.9) 0 .4px,transparent .9px) 0 0/2.5px 2.5px;mix-blend-mode:overlay;opacity:calc(.22*var(--tex));transform:rotate(38deg)}
+.tx-grain{will-change:transform;inset:-10%;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='.33 .33 .33 0 0  .33 .33 .33 0 0  .33 .33 .33 0 0  0 0 0 0 1'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+mix-blend-mode:overlay;opacity:calc(.5*var(--tex));animation:grain .7s steps(1) infinite}
+.tx-blot{inset:0;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='600'><filter id='b'><feTurbulence type='fractalNoise' baseFrequency='.012' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='matrix' values='.33 .33 .33 0 0  .33 .33 .33 0 0  .33 .33 .33 0 0  0 0 0 0 1'/></filter><rect width='100%' height='100%' filter='url(%23b)'/></svg>") 0 0/600px 600px;
+mix-blend-mode:overlay;opacity:calc(.5*var(--tex))}
+@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-3%,2%)}40%{transform:translate(2%,-3%)}60%{transform:translate(-2%,-1%)}80%{transform:translate(3%,3%)}}
+@supports (height:100dvh){#app{bottom:auto;height:100dvh}}
+@media (max-width:860px){
+.tx-mag,.tx-cyan{display:none}
+#app{grid-template-columns:minmax(0,1fr);grid-template-rows:28px minmax(0,1fr) auto;padding:6px;gap:6px}
+#top{grid-column:1;font-size:11px;letter-spacing:.15em}#top span:last-child{display:none}
+#side{grid-column:1;grid-row:3}
+.nav{padding:20px 2px 16px;font-size:11px}
+#nav{grid-template-columns:repeat(4,1fr)}
+#panel{inset:10px 8px 78px}
+#dock{left:8px;right:8px;bottom:8px;gap:10px;height:56px}#dock .mt{max-width:none}
+.dprog{position:absolute;left:0;right:0;top:-1px;flex:none;min-width:0}.dprog .pl-bar{height:5px;margin:0;border:0}.dprog .mc{display:none}
+.hud{font-size:clamp(8px,2.4vw,11px);letter-spacing:.05em}
+.hud.tl{left:12px;top:10px}.hud.tr{right:12px;top:10px}
+.hud.bl{display:none}
+#hub{inset:46px 0 78px 0}
+#logo{height:100%}
+#wordmark{bottom:10px;right:10px;width:50px}
+#dock .pl-art{display:none}#dock{padding:6px 10px}
+#dock .ctl{gap:4px}#dock .pbtn{width:34px;height:30px}#dock .pbtn.main{width:44px}
+.pl-title{font-size:12px}
+body.nodock #panel{inset:10px 8px 8px}
+.row{gap:10px}.cover{flex-basis:60px;height:60px}.date{flex-basis:66px;font-size:26px}
+}
+@media (prefers-reduced-motion:reduce){*{animation-duration:0s!important}}
+</style>
+</head>
+<body>
+
+<div id="intro">
+  <div>
+    <img id="introLogo" src="logo-spin.webp" alt="Information">
+    <button id="enter">ENTER</button>
+  </div>
+</div>
+
+<div id="tex" aria-hidden="true"><i class="tx-soft"></i><i class="tx-blot"></i><i class="tx-dots"></i><i class="tx-mag"></i><i class="tx-cyan"></i><i class="tx-grain"></i></div>
+<iframe id="scf" title="SoundCloud audio" allow="autoplay" tabindex="-1" aria-hidden="true"></iframe>
+<div id="app">
+  <header id="top"><button type="button" id="home" aria-label="Back to home"><span class="led"></span><b>INFORMATION</b></button><span id="clock">--:--:--</span></header>
+
+  <section id="view" class="bezel">
+    <div class="screen">
+      <div id="grid"></div><div id="glow"></div>
+      <div id="hub"><div id="logo"><img src="logo-spin.webp" alt="Information"></div></div>
+      <div class="hud tl">NEW YORK CITY<br>40.7128° N, 74.0060° W</div>
+      <div class="hud tr">LOS ANGELES<br>34.0522° N, 118.2437° W</div>
+      <div class="hud bl">INFORMATION.REC</div>
+      <svg id="wordmark" viewBox="0 0 2308 1373" aria-label="Information wordmark" role="img"><path d="M1898.14 110.835C1886.81 55.7666 1930.93 4.98752 1987.04 8.52148C2031.97 11.3515 2066.96 48.6179 2066.96 93.6377V127.752C2066.96 156.086 2086.11 180.838 2113.54 187.95L2187.28 207.072C2280.3 231.196 2331.48 331.055 2296.73 420.655L2209.54 645.486C2201.69 665.722 2177.82 674.42 2158.8 663.976C2146.84 657.415 2139.64 644.648 2140.2 631.025L2150.15 390.158C2151.19 364.788 2131.48 343.372 2106.11 342.324C2080.73 341.277 2059.32 360.994 2058.27 386.365L2055.19 461.058C2054.37 480.884 2037.63 496.293 2017.81 495.475C2002.02 494.823 1988.51 483.93 1984.52 468.638L1964.12 390.383C1955.68 357.999 1927.07 334.932 1893.64 333.552C1851.65 331.818 1816.21 364.449 1814.48 406.435L1812.95 443.306C1811.23 484.989 1832.62 524.228 1868.58 545.371L2169.92 722.521L2202.16 742.821C2250.33 773.151 2282.1 823.741 2288.48 880.305C2289.78 891.777 2290.01 903.345 2289.17 914.86L2258.59 1336.7C2257.74 1348.42 2251.63 1359.12 2241.97 1365.8C2219.37 1381.44 2188.11 1369.26 2182.05 1342.45L2097.38 967.829C2091.07 939.917 2074.8 915.261 2051.62 898.48C1976.99 844.454 1872.04 893.307 1865.33 985.194L1853.31 1149.8C1846.19 1247.28 1772.65 1326.9 1676.04 1341.73L1490.39 1370.23C1437.06 1378.42 1383.9 1354.53 1354.61 1309.22C1340.29 1287.07 1332.68 1261.26 1332.68 1234.89V1100.83C1332.68 1013.25 1404.03 942.252 1491.61 942.252C1539.4 942.252 1584.77 920.553 1614.66 883.266C1633.61 859.622 1645.34 831.013 1648.45 800.87L1675.12 541.56C1679.03 503.576 1642.96 473.891 1606.44 485.035C1583.38 492.071 1567.9 513.685 1568.66 537.778L1576.99 801.915C1578.32 844.189 1544.41 879.183 1502.12 879.183C1455.83 879.182 1420.61 837.612 1428.23 791.951L1454.47 634.653C1458.35 611.386 1440.41 590.203 1416.82 590.203C1401.17 590.203 1387.11 599.752 1381.34 614.295L1276.6 878.253C1259.82 920.536 1251.2 965.615 1251.2 1011.11V1279.83C1251.2 1330.34 1210.25 1371.3 1159.73 1371.3C1101.8 1371.3 1058.46 1318.13 1070.14 1261.39L1093.45 1148.11C1096.01 1135.63 1094.45 1122.65 1088.99 1111.14C1080.85 1093.97 1064.91 1081.81 1046.2 1078.49L900.595 1052.71C879.602 1048.99 859.077 1061.3 852.468 1081.57C851.275 1085.23 850.581 1089.03 850.405 1092.87L840.578 1307.12C839.573 1329.02 822.716 1346.9 800.91 1349.2C775.655 1351.86 753.327 1332.81 751.971 1307.45L741.364 1109.09C740.257 1088.39 732.936 1068.5 720.356 1052.01L711.45 1040.34C701.971 1027.92 688.29 1019.38 672.969 1016.32L645.228 1010.77C615.933 1004.91 589.492 1029.43 593.136 1059.09L634.372 1269.41C638.756 1291.77 626.27 1314.01 604.896 1321.91C586.338 1328.77 565.473 1323.12 552.913 1307.83L382.527 1100.44C373.587 1089.56 361.711 1081.47 348.311 1077.13C315.66 1066.57 280.044 1079.98 262.458 1109.44L118.461 1350.73C111.335 1362.67 96.74 1367.88 83.6641 1363.15C70.8785 1358.52 63.0181 1345.64 64.7539 1332.15L123.287 877.434C130.615 820.503 124.283 762.645 104.812 708.647L13.3154 454.894C11.9887 451.214 10.9521 447.436 10.2148 443.595C1.34332 397.367 36.7697 354.495 83.8408 354.495H138.353C154.39 354.495 168.519 343.948 173.079 328.572C178.678 309.692 168.167 289.798 149.415 283.783L86.4707 263.594C44.4123 250.104 15.4967 211.476 14.4043 167.32L12.7666 101.113C11.8995 66.0554 33.0336 34.1923 65.668 21.3545C92.6827 10.7276 123.279 14.8957 146.466 32.3623L197.947 71.1436C255.714 114.659 285.269 186.13 275.108 257.735L227.842 590.821C225.336 608.48 235.814 625.405 252.738 631.034C273.84 638.053 296.313 624.958 300.608 603.138L365.347 274.266C367.641 262.611 372.578 251.637 379.777 242.188C398.744 217.298 430.794 206.219 461.083 214.082L504.401 225.328C543.082 235.37 575.902 260.934 595.108 295.979L606.787 317.29C620.232 341.823 628.415 368.892 630.812 396.765L663.939 782.019C665.006 794.428 659.492 806.488 649.408 813.799C628.942 828.637 599.965 817.935 594.058 793.355L508.228 436.256C506.673 429.787 502.739 424.141 497.208 420.443C477.548 407.299 451.834 424.583 456.581 447.751L536.61 838.293C547.113 889.547 592.215 926.344 644.534 926.344H659.365C674.932 926.344 690.03 921.014 702.147 911.242C719.199 897.49 728.6 876.38 727.415 854.506L702.739 399.19C692.832 216.383 854.929 71.5151 1035.48 101.815L1236.48 135.548C1263.74 140.121 1283.32 164.263 1282.18 191.871C1281.12 217.568 1262.34 239.073 1237.02 243.579L1005.38 284.803C973.208 290.528 949.324 318.369 947.976 351.016C946.642 383.33 968.113 412.674 999.463 420.62C1013.74 424.24 1028.81 423.149 1042.42 417.51L1309.75 306.758C1352.64 288.988 1385.27 252.871 1398.6 208.399C1421.01 133.668 1495.61 87.3699 1572.52 100.47L1876.72 152.282C1883.6 153.454 1890.62 151.217 1895.55 146.283C1900.67 141.164 1902.87 133.814 1901.41 126.723L1898.14 110.835ZM1694.35 1133.83C1694.35 1100 1664.11 1074.19 1630.7 1079.5L1563.33 1090.22C1536.99 1094.41 1517.6 1117.13 1517.6 1143.8C1517.6 1176.68 1546.61 1202 1579.19 1197.56L1646.77 1188.34C1674.03 1184.62 1694.35 1161.34 1694.35 1133.83ZM323.041 873.244C316.294 860.973 298.661 860.973 291.914 873.244L270.678 911.866C264.169 923.703 272.733 938.186 286.241 938.186H328.714C342.222 938.186 350.786 923.703 344.277 911.866L323.041 873.244ZM927.421 503.674C901.066 500.924 877.852 520.973 876.737 547.447L863.332 865.979C863.052 872.627 863.88 879.276 865.781 885.653C873.475 911.46 897.413 928.984 924.338 928.522L1104.38 925.433C1122.79 925.117 1137.55 910.102 1137.55 891.689C1137.55 874.382 1124.46 859.88 1107.24 858.117L1038.1 851.039C974.486 844.526 929.597 785.629 940.183 722.562L967.972 556.986C972.359 530.846 953.783 506.425 927.421 503.674ZM1169.45 585.844C1144.36 584.808 1123.23 603.443 1122.23 627.465C1121.24 651.487 1140.77 671.8 1165.86 672.836C1190.94 673.872 1212.08 655.237 1213.07 631.215C1214.06 607.193 1194.53 586.879 1169.45 585.844ZM1587.2 260.359C1559.97 247.649 1528.3 265.457 1525.01 295.333C1522.16 321.316 1542.5 344.023 1568.64 344.023H1610.42C1625.7 344.023 1639.17 334.014 1643.57 319.39C1648.54 302.919 1640.65 285.303 1625.07 278.028L1587.2 260.359Z" fill="currentColor"/></svg>
+      <div id="dock"><img class="pl-art" alt="" onerror="this.style.visibility='hidden'"><div class="mt"><div class="pl-title">LOADING SET...</div><div class="pl-sub">INFORMATION PROGRAM</div></div>
+        <div class="ctl"><button class="pbtn" data-pl="prev" aria-label="Previous"></button><button class="pbtn main" data-pl="toggle" aria-label="Play or pause"></button><button class="pbtn" data-pl="next" aria-label="Next"></button></div>
+        <div class="dprog"><div class="pl-bar"><i class="pl-fill"></i></div><div class="mc"><span class="pl-time">0:00</span><span class="pl-dur">0:00</span></div></div></div>
+      <div id="panel"><div class="ph"><span id="ptitle">module</span><button id="pclose" aria-label="Close" title="Close (Esc)">X</button></div><div class="pb" id="pbody"></div></div>
+      <canvas id="noise" width="180" height="180"></canvas><div class="crt"></div>
+    </div>
+  </section>
+
+  <aside id="side">
+    <div class="bezel">
+      <div id="nav">
+        <button class="nav" data-open="releases"><b>01</b>Releases</button>
+        <button class="nav" data-open="events"><b>02</b>Events</button>
+        <button class="nav" data-open="program"><b>03</b>Program</button>
+        <button class="nav" data-open="about"><b>04</b>About</button>
+      </div></div>
+  </aside>
+</div>
+
+<script>
+/* =====================================================================
+   EDIT YOUR LABEL HERE — everything on the site reads from this object
+   ===================================================================== */
+const CONFIG = {
+  name: "INFORMATION",
+  email: "information.recs@gmail.com",
+  ig: {handle:"@information.program", url:"https://instagram.com/information.program"},
+  soundcloud: "https://soundcloud.com/information-recs/sets/information-program",
+  about: "Information is a New York / Los Angeles bi-coastal record label and DIY party series. We believe in stretching the idea of dance-floor ready music into deeper and weirder territory.",
+  // Events: loaded from events.json (same folder); this copy is the fallback if that file can't be read.
+  events: [{"id": "2576226", "date": "2026-12-04", "title": "Information - All Vinyl Night: DJ TOOL (4 hour set) + Daura + Yessi", "venue": "TBA - Secret Location DTLA", "city": "Los Angeles", "artists": ["DJ TOOL", "Daura", "Yessi"], "link": "https://ra.co/events/2576226", "flyer": "https://images.ra.co/2b4745395ab828180b99e3cc86e1a463df8e46b8.jpg"}, {"id": "2570976", "date": "2026-11-14", "title": "Information Open Air: Caim + Kurilo + Naomi Green + Slip", "venue": "TBA - Open Air Venue", "city": "Los Angeles", "artists": ["Caim", "Kurilo", "Naomi Green", "Slip"], "link": "https://ra.co/events/2570976", "flyer": "https://images.ra.co/dca064c8fbab1f994e39ad67475a391488825e53.png"}, {"id": "2566962", "date": "2026-11-06", "title": "Information: Shakolin + 98dots + Kana Hishiya", "venue": "TBA - Secret Location DTLA", "city": "Los Angeles", "artists": ["Shakolin", "98dots", "Kana Hishiya"], "link": "https://ra.co/events/2566962", "flyer": "https://images.ra.co/510f54b0b3daa37401e7058b5ffdab851c31dec1.png"}, {"id": "2538349", "date": "2026-10-16", "title": "Information: Que Sakamoto + Bambi + Screeb", "venue": "TBA - Goo People", "city": "Los Angeles", "artists": ["Que Sakamoto", "Bambi (FR)", "Screeb"], "link": "https://ra.co/events/2538349", "flyer": "https://images.ra.co/d8c43545a1ed4faeb82291c24f1cf7ba028159aa.jpg"}, {"id": "2536808", "date": "2026-10-10", "title": "Information: Kuba'97 (US Debut) + Amelia Holt + Jek b2b djfix + Screeb", "venue": "TBA - Outdoor Gathering", "city": "New York City", "artists": ["Kuba'97", "Amelia Holt", "Jek (US)", "djfix", "Screeb"], "link": "https://ra.co/events/2536808", "flyer": "https://images.ra.co/09e412b3d4ec60b9e9544d70687bf304b50aa04d.jpg"}, {"id": "2533953", "date": "2026-09-27", "title": "Information: Agonis + Slip", "venue": "TBA - NOTHING USUAL", "city": "Los Angeles", "artists": ["Agonis", "Slip"], "link": "https://ra.co/events/2533953", "flyer": "https://images.ra.co/0270f2be7f05f9e86ea5f4e4655726cbb1b6fa5d.jpg"}, {"id": "2456585", "date": "2026-07-18", "title": "Information - All Vinyl Night w/ Taylor Shockley + Luke Mele + CHOíCE", "venue": "TBA - Downtown LA", "city": "Los Angeles", "artists": ["Taylor Shockley", "Luke Mele", "CHOíCE"], "link": "https://ra.co/events/2456585", "flyer": "https://images.ra.co/e532bad69e2819cca2325b23ac65d8fb72e371dc.jpg"}, {"id": "2456580", "date": "2026-06-27", "title": "Information - All Vinyl Night w/ Shakolin + Slip", "venue": "TBA - Secret Location DTLA", "city": "Los Angeles", "artists": ["Shakolin", "Slip"], "link": "https://ra.co/events/2456580", "flyer": "https://images.ra.co/e9499fff6c94f3bdfe33e1c928416dda2d421cec.jpg"}, {"id": "2435630", "date": "2026-05-07", "title": "Substrate / NotUs / Wellness Residents", "venue": "TBA - NothingUsual", "city": "Los Angeles", "artists": ["Cron", "Slip", "pollensource", "Mirror Image"], "link": "https://ra.co/events/2435630", "flyer": "https://images.ra.co/d3150ed9d63d71d12e2deb43fe4e4c28951a2d38.jpg"}, {"id": "2356019", "date": "2026-04-25", "title": "Information: Tadan + K.O.P. 32 (Live) + Lychee + Gbar (Live)", "venue": "TBA - Forest Gathering in Queens", "city": "New York City", "artists": ["Tadan", "Pyramid of Knowledge", "Lychee", "Gbar"], "link": "https://ra.co/events/2356019", "flyer": "https://images.ra.co/5a65177ceb242fc40a0fe4e9f84a1ac6eb856204.jpg"}, {"id": "2356012", "date": "2026-04-17", "title": "Information: Tadan + K.O.P. 32 (Live) + agraybé + straye", "venue": "TBA - DTLA", "city": "Los Angeles", "artists": ["Tadan", "Pyramid of Knowledge", "agraybé", "straye"], "link": "https://ra.co/events/2356012", "flyer": "https://images.ra.co/f224e9fbd3cae84650b3d66aa8f4323a41da731a.jpg"}, {"id": "2378097", "date": "2026-04-04", "title": "Information: Al Wootton + sysk + Slip b2b Screeb", "venue": "TBA - Secret Location DTLA", "city": "Los Angeles", "artists": ["Al Wootton", "sysk", "Slip", "Screeb"], "link": "https://ra.co/events/2378097", "flyer": "https://images.ra.co/7763a4671c14917dcf934f224aabdbb013b4be79.png"}, {"id": "2350421", "date": "2026-03-07", "title": "Information: Sybil (UK) Marius Bø 98dots Jane Margarette", "venue": "TBA - Secret Location DTLA", "city": "Los Angeles", "artists": ["Sybil", "Marius Bø", "98dots", "Jane Margarette"], "link": "https://ra.co/events/2350421", "flyer": "https://images.ra.co/bae46ca1c41f4fbe8203988c69329ffc0b1c6250.png"}]
+};
+fetch('events.json',{cache:'no-store'}).then(r=>r.ok?r.json():Promise.reject()).then(j=>{ if(Array.isArray(j)&&j.length) CONFIG.events=j; }).catch(()=>{});
+const SCP = {sounds:[], idx:-1, playing:false, pos:0, ready:false};
+let scw = null;
+const SECTIONS = ['releases','events','program','about'];
+
+const $ = s => document.querySelector(s);
+document.title = CONFIG.name;
+
+{ const li = $('#introLogo'), showEnter = () => setTimeout(() => { $('#enter').style.display = 'inline-block'; }, 700);
+  if (li.complete) showEnter(); else { li.addEventListener('load', showEnter); li.addEventListener('error', showEnter); } }
+$('#enter').onclick = () => {
+  $('#intro').classList.add('gone'); scPlayDefault();
+};
+
+const pad = n => String(n).padStart(2,'0');
+setInterval(() => { const d = new Date(); $('#clock').textContent = `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`; }, 1000);
+
+const nc = $('#noise'), nx = nc.getContext('2d'), img = nx.createImageData(180,180);
+(function noise(){
+  if (document.hidden) return void setTimeout(noise, 800);
+  const d = img.data; for (let i=0;i<d.length;i+=4){ const v = Math.random()*255; d[i]=d[i+1]=d[i+2]=v; d[i+3]=60; }
+  nx.putImageData(img,0,0); setTimeout(()=>requestAnimationFrame(noise),70);
+})();
+
+const MONTHS = ['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'];
+function eventRows(list){
+  if (!list.length) return '<p class="meta" style="padding:16px 0">No entries.</p>';
+  return '<div class="gal">' + list.map(s => { const d = new Date(s.date+'T12:00:00');
+    return `<a class="card" href="${s.link}" target="_blank" rel="noopener" data-flyer="${s.flyer||''}" data-title="${s.title.replace(/"/g,'&quot;')}">
+      <div class="fly">${s.flyer?`<img src="${s.flyer}" alt="${s.title.replace(/"/g,'&quot;')}" loading="lazy" decoding="async" referrerpolicy="no-referrer">`:'<span>NO FLYER</span>'}</div>
+      <div class="cap"><b>${pad(d.getDate())} ${MONTHS[d.getMonth()]} ${d.getFullYear()}</b><span>${s.title}</span><em>${s.venue}${s.city?' · '+s.city:''}</em></div></a>`; }).join('') + '</div>';
+}
+const views = {
+  releases(){
+    return `<div class="soon"><div class="soon-t">COMING SOON</div><p class="meta">First release in progress</p></div>`;
+  },
+  events(){
+    const today = new Date().toISOString().slice(0,10);
+    const up = CONFIG.events.filter(e=>e.date>=today).sort((a,b)=>a.date<b.date?-1:1);
+    const ar = CONFIG.events.filter(e=>e.date<today).sort((a,b)=>a.date<b.date?1:-1);
+    return `<div class="tabs"><button class="tab on" data-t="up">Upcoming</button><button class="tab" data-t="ar">Archive</button></div>
+      <div data-pane="up">${eventRows(up)}</div><div data-pane="ar" hidden>${eventRows(ar)}</div>`;
+  },
+  program(){
+    if (!window.SC) return `<p class="meta" style="margin-top:14px">Information Program — mix series</p>
+      <p style="margin:12px 0;line-height:1.6;max-width:52ch">Loading the player. If it doesn't appear, your browser or an ad blocker may be blocking SoundCloud. You can listen directly on SoundCloud instead.</p>
+      <p><a href="${CONFIG.soundcloud}" target="_blank" rel="noopener">listen on soundcloud</a></p>`;
+    return `<div class="np"><img class="pl-art" alt="" onerror="this.style.visibility='hidden'"><div class="mt"><div class="meta">Information Program — mix series</div><div class="pl-title" style="margin-top:6px"></div><div class="pl-sub"></div></div></div>
+      <div class="pl-bar"><i class="pl-fill"></i></div>
+      <div class="mc"><span class="pl-time">0:00</span><div class="ctl"><button class="pbtn" data-pl="prev" aria-label="Previous"></button><button class="pbtn main" data-pl="toggle" aria-label="Play or pause"></button><button class="pbtn" data-pl="next" aria-label="Next"></button></div><span class="pl-dur">0:00</span></div>
+      <div class="label" style="margin-top:22px">Tracklist</div><div id="tracklist">${trackRows()}</div>
+      <p style="margin-top:14px"><a href="${CONFIG.soundcloud}" target="_blank" rel="noopener">open on soundcloud</a></p>`;
+  },
+  about(){
+    return `<div class="about"><figure class="clip"><img src="about-clip.gif" alt="Kuba97, NYC, 10.10.26" width="280" height="498"><figcaption>Kuba97 · NYC · 10.10.26</figcaption></figure>
+      <div class="about-txt"><div class="big">Information</div><p style="line-height:1.6;max-width:56ch">${CONFIG.about}</p>
+      <div class="row" style="margin-top:14px"><div><p class="meta">Email</p><p><a href="mailto:${CONFIG.email}">${CONFIG.email}</a></p></div></div>
+      <div class="row"><div><p class="meta">Instagram</p><p><a href="${CONFIG.ig.url}" target="_blank" rel="noopener">${CONFIG.ig.handle}</a></p></div></div></div></div>`;
+  }
+};
+const titles = {releases:'01 // releases', events:'02 // events', program:'03 // program', about:'04 // about'};
+let current = null;
+
+function openSection(key){
+  current = key; document.body.classList.add('sec-open');
+  $('#ptitle').textContent = titles[key]; $('#pbody').innerHTML = views[key]();
+  const p = $('#panel'); p.classList.remove('on'); void p.offsetWidth; p.classList.add('on');
+  document.querySelectorAll('.nav').forEach(n => n.classList.toggle('on', n.dataset.open===key));
+  document.querySelectorAll('.blip').forEach(n => n.classList.toggle('on', n.dataset.open===key));
+
+  if (key==='program' && window.SC){ updatePlayer(); }
+  if (key==='events') document.querySelectorAll('.tab').forEach(b => b.onclick = () => {
+    document.querySelectorAll('.tab').forEach(x => x.classList.toggle('on', x===b));
+    document.querySelectorAll('[data-pane]').forEach(p => p.hidden = p.dataset.pane!==b.dataset.t);
+
+  });
+}
+function closeSection(){
+  current = null; document.body.classList.remove('sec-open'); $('#panel').classList.remove('on');
+  document.querySelectorAll('.nav,.blip').forEach(n => n.classList.remove('on'));
+}
+document.querySelectorAll('.nav').forEach(n => n.onclick = () => current===n.dataset.open ? closeSection() : openSection(n.dataset.open));
+$('#pclose').onclick = closeSection;
+$('#home').onclick = closeSection;
+addEventListener('keydown', e => {
+  if (e.key==='Escape') closeSection();
+  const i = '1234'.indexOf(e.key); if (i>-1 && !e.target.matches('input,textarea')) openSection(SECTIONS[i]);
+});
+
+const ICON = {
+  play:'<svg viewBox="0 0 16 16"><path d="M3 1l11 7-11 7z"/></svg>', pause:'<svg viewBox="0 0 16 16"><path d="M3 1h4v14H3zM9 1h4v14H9z"/></svg>',
+  prev:'<svg viewBox="0 0 16 16"><path d="M2 2h2v12H2zM14 2v12L5 8z"/></svg>', next:'<svg viewBox="0 0 16 16"><path d="M12 2h2v12h-2zM2 2l9 6-9 6z"/></svg>'
+};
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const fmt = ms => { const s = Math.floor((ms||0)/1000); return Math.floor(s/60) + ':' + pad(s%60); };
+const curDur = () => (SCP.sounds[SCP.idx] && SCP.sounds[SCP.idx].duration) || 0;
+function trackRows(){
+  if (!SCP.sounds.length) return '<p class="meta" style="padding:12px 0">Loading tracklist...</p>';
+  return SCP.sounds.map((s,i) => `<button class="tl-row ${i===SCP.idx?'on':''}" data-track="${i}"><span class="tl-n">${pad(i+1)}</span><span style="flex:1">${esc(s.title || 'Mix ' + pad(i+1))}</span><span class="meta">${s.duration ? fmt(s.duration) : ''}</span></button>`).join('');
+}
+function updateProgress(){
+  const d = curDur(), p = d ? Math.min(100, SCP.pos/d*100) : 0;
+  document.querySelectorAll('.pl-fill').forEach(e => e.style.width = p+'%');
+  document.querySelectorAll('.pl-time').forEach(e => e.textContent = fmt(SCP.pos));
+  document.querySelectorAll('.pl-dur').forEach(e => e.textContent = fmt(d));
+}
+function updatePlayer(){
+  document.body.classList.toggle('sc-playing', !!SCP.playing);
+  const s = SCP.sounds[SCP.idx];
+  document.querySelectorAll('.pl-title').forEach(e => e.textContent = s ? (s.title || 'Mix ' + pad(SCP.idx+1)) : (SCP.ready ? 'Program' : 'Loading set...'));
+  document.querySelectorAll('.pl-sub').forEach(e => e.textContent = s ? ((s.user && s.user.username) || 'Information') + ' · ' + (SCP.idx+1) + ' / ' + SCP.sounds.length : 'Information Program');
+  document.querySelectorAll('.pl-art').forEach(e => { const u = s && s.artwork_url ? s.artwork_url.replace('-large','-t300x300') : ''; if (u){ if (e.getAttribute('src')!==u) e.src = u; e.style.visibility = 'visible'; } else e.style.visibility = 'hidden'; });
+  document.querySelectorAll('[data-pl]').forEach(b => { const k = b.dataset.pl; b.innerHTML = k==='toggle' ? (SCP.playing?ICON.pause:ICON.play) : ICON[k]; b.classList.toggle('playing', k==='toggle' && SCP.playing); });
+  document.querySelectorAll('.tl-row').forEach(r => r.classList.toggle('on', +r.dataset.track===SCP.idx));
+  updateProgress();
+}
+// Default sound: the first mix (001 / Slip). Matches by title, falls back to the first track in the set.
+function defaultIdx(){ const k = SCP.sounds.findIndex(s => /(?:^|[^0-9])0{0,2}1(?![0-9])|slip/i.test(s.title || '')); return k >= 0 ? k : 0; }
+function scPlayDefault(){
+  if (!scw || !SCP.ready){ SCP.wantPlay = true; return; }
+  SCP.wantPlay = false;
+  if (SCP.playing) return;
+  if (!SCP.started) scw.skip(defaultIdx());
+  setTimeout(() => scw.play(), 250);
+}
+// SoundCloud fills in track details lazily, so later tracks can arrive without a title. Re-read until every track has one.
+function refreshSounds(tries = 0){
+  if (!scw) return;
+  scw.getSounds(list => {
+    if (!list || !list.length) return;
+    SCP.sounds = list;
+    const t = $('#tracklist'); if (t) t.innerHTML = trackRows();
+    updatePlayer();
+    if (list.some(s => !s || !s.title) && tries < 8) setTimeout(() => refreshSounds(tries + 1), 2000);
+  });
+}
+function scInit(){
+  if (!window.SC || !SC.Widget){ document.body.classList.add('nodock'); return; }
+  const f = $('#scf');
+  f.src = 'https://w.soundcloud.com/player/?url=' + encodeURIComponent(CONFIG.soundcloud) + '&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=false';
+  scw = SC.Widget(f);
+  if (current === 'program'){ $('#pbody').innerHTML = views.program(); updatePlayer(); }
+  scw.bind(SC.Widget.Events.READY, () => scw.getSounds(list => {
+    SCP.sounds = list || []; SCP.ready = true; if (SCP.sounds.length) SCP.idx = defaultIdx();
+    const t = $('#tracklist'); if (t) t.innerHTML = trackRows();
+    updatePlayer();refreshSounds(); if (SCP.wantPlay) scPlayDefault();
+  }));
+  scw.bind(SC.Widget.Events.PLAY, () => {
+    SCP.playing = true; SCP.started = true;
+    refreshSounds();
+    scw.getCurrentSoundIndex(i => { SCP.idx = i; updatePlayer(); });
+    updatePlayer();
+  });
+  const stopped = () => { SCP.playing = false; updatePlayer(); };
+  scw.bind(SC.Widget.Events.PAUSE, stopped);
+  scw.bind(SC.Widget.Events.FINISH, () => { SCP.pos = 0; stopped(); });
+  scw.bind(SC.Widget.Events.PLAY_PROGRESS, e => { SCP.pos = e.currentPosition; updateProgress(); });
+  scw.bind(SC.Widget.Events.SEEK, e => { SCP.pos = e.currentPosition; updateProgress(); });
+}
+document.addEventListener('click', e => {
+  if (!scw) return;
+  const b = e.target.closest('[data-pl]');
+  if (b){ const a = b.dataset.pl; if (a==='toggle') scw.toggle(); else if (a==='next') scw.next(); else if (a==='prev') scw.prev(); return; }
+  const r = e.target.closest('[data-track]');
+  if (r){ scw.skip(+r.dataset.track); setTimeout(() => scw.play(), 250); return; }
+  const bar = e.target.closest('.pl-bar');
+  if (bar && curDur()){ const rc = bar.getBoundingClientRect(); scw.seekTo((e.clientX - rc.left) / rc.width * curDur()); }
+});
+updatePlayer();
+(function(){ const s = document.createElement('script'); s.src = 'https://w.soundcloud.com/player/api.js'; s.async = true; s.onload = scInit; s.onerror = () => document.body.classList.add('nodock'); document.head.appendChild(s); })();
+</script>
+</body>
+</html>

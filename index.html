@@ -57,7 +57,7 @@ background-size:56px 56px;opacity:.18;transform:perspective(380px) rotateX(68deg
 #logo{position:relative;height:84%;aspect-ratio:563/1000;max-width:80%;animation:glitch 6s infinite steps(1)}
 #logo img{width:100%;height:100%;object-fit:contain;display:block;filter:drop-shadow(0 0 26px rgba(224,100,44,.3))}
 @keyframes glitch{0%,92%,100%{transform:none;clip-path:none}93%{transform:translate(-6px,2px) skewX(6deg)}94%{transform:translate(5px,-2px);clip-path:inset(40% 0 20% 0)}95%{transform:translate(-3px,0);clip-path:inset(10% 0 60% 0)}96%{transform:none;clip-path:none}}
-#wordmark{position:absolute;right:20px;bottom:88px;width:clamp(72px,8vw,108px);height:auto;color:var(--teal);opacity:.5;pointer-events:none;z-index:2;filter:drop-shadow(0 0 6px rgba(77,255,200,.35))}
+#wordmark{position:absolute;right:14px;bottom:12px;width:clamp(72px,8vw,108px);height:auto;color:var(--teal);opacity:.5;pointer-events:none;z-index:2;filter:drop-shadow(0 0 6px rgba(77,255,200,.35))}
 .hud{position:absolute;font-size:12px;letter-spacing:.2em;color:var(--teal);opacity:.8;text-transform:uppercase;pointer-events:none}
 .hud{transition:opacity .25s}
 body.sec-open .hud.tl,body.sec-open .hud.tr{opacity:0}
@@ -192,7 +192,7 @@ mix-blend-mode:overlay;opacity:calc(.5*var(--tex))}
 .hud.bl{display:none}
 #hub{inset:46px 0 78px 0}
 #logo{height:100%}
-#wordmark{bottom:76px;right:12px;width:50px}
+#wordmark{bottom:10px;right:10px;width:50px}
 #dock .pl-art{display:none}#dock{padding:6px 10px}
 #dock .ctl{gap:4px}#dock .pbtn{width:34px;height:30px}#dock .pbtn.main{width:44px}
 .pl-title{font-size:12px}
@@ -200,7 +200,7 @@ body.nodock #panel{inset:10px 8px 8px}
 .row{gap:10px}.cover{flex-basis:60px;height:60px}.date{flex-basis:66px;font-size:26px}
 }
 @media (prefers-reduced-motion:reduce){*{animation-duration:0s!important}}
-</style>
+#hub,#hub{inset:0!important}#logo{position:absolute!important;inset:0;height:100%!important;width:100%;max-width:none!important;aspect-ratio:auto!important;animation:none!important}#logo video{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.08) saturate(1.1)}#hub::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,transparent 45%,rgba(0,0,0,.55) 100%),repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px)}.hud{color:#eafff6!important;text-shadow:0 0 6px #000,0 0 3px #000}#wordmark{opacity:.9!important;color:#eafff6!important;filter:drop-shadow(0 0 3px #000) drop-shadow(0 0 6px #000)!important}</style>
 </head>
 <body>
 
@@ -219,7 +219,7 @@ body.nodock #panel{inset:10px 8px 8px}
   <section id="view" class="bezel">
     <div class="screen">
       <div id="grid"></div><div id="glow"></div>
-      <div id="hub"><div id="logo"><img src="logo-spin.webp" alt="Information"></div></div>
+      <div id="hub"><div id="logo"><video src="spiral.mp4" autoplay loop muted playsinline preload="auto" disablepictureinpicture></video></div></div>
       <div class="hud tl">NEW YORK CITY<br>40.7128° N, 74.0060° W</div>
       <div class="hud tr">LOS ANGELES<br>34.0522° N, 118.2437° W</div>
       <div class="hud bl">INFORMATION.REC</div>
