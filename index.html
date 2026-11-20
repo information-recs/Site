@@ -61,7 +61,7 @@ background-size:56px 56px;opacity:.18;transform:perspective(380px) rotateX(68deg
 .hud{position:absolute;font-size:12px;letter-spacing:.2em;color:var(--teal);opacity:.8;text-transform:uppercase;pointer-events:none}
 .hud{transition:opacity .25s}
 body.sec-open .hud.tl,body.sec-open .hud.tr{opacity:0}
-.hud.tl{left:14px;top:12px}.hud.tr{right:14px;top:12px;text-align:right}
+.hud.tl{left:14px;top:10px}.hud.tr{right:14px;top:10px;text-align:right}
 .hud.bl{left:14px;bottom:86px}.hud.br{right:14px;bottom:86px;text-align:right}
 .rec{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--red);margin-right:6px;animation:led 1s infinite}
 .hud i{position:absolute;width:16px;height:16px;border:2px solid var(--teal);opacity:.7}
@@ -77,8 +77,8 @@ background:rgba(2,9,6,.95);border:1px solid var(--teal-dim);box-shadow:0 0 40px 
 @keyframes crton{0%{transform:scaleY(.01);filter:brightness(5)}55%{transform:scaleY(1.02);filter:brightness(2)}100%{transform:none}}
 .ph{display:flex;justify-content:space-between;align-items:center;padding:7px 12px;border-bottom:1px solid var(--teal-dim);
 font-family:var(--head);letter-spacing:.3em;font-size:13px;color:var(--teal);text-transform:uppercase;background:rgba(77,255,200,.06)}
-.ph button{background:none;border:1px solid var(--teal-dim);color:var(--teal);padding:0 10px;font-family:var(--head);letter-spacing:.2em}
-.ph button:hover{background:var(--teal);color:#021a12}
+.ph button{background:rgba(255,59,47,.08);border:1px solid #8a3a30;color:#ff6a5c;width:28px;height:28px;padding:0;display:grid;place-items:center;font-family:var(--head);font-size:15px;line-height:1;letter-spacing:0}
+.ph button:hover{background:#ff3b2f;border-color:#ff3b2f;color:#fff}
 .pb{flex:1;overflow:auto;padding:6px 18px 18px;scrollbar-width:thin;scrollbar-color:var(--teal-dim) transparent}
 .row{display:flex;gap:16px;padding:16px 0;border-bottom:1px solid #123a2e;align-items:center}
 .row:last-child{border:0}
@@ -162,7 +162,7 @@ box-shadow:inset 0 0 18px rgba(77,255,200,.28),0 0 0 1px #000}
 #intro{position:fixed;inset:0;z-index:300;background:#020302;display:grid;place-items:center;text-align:center;transition:opacity .7s}
 #intro.gone{opacity:0;pointer-events:none}
 #intro img{height:44vh;max-height:520px;width:auto;max-width:80vw;display:block;margin:0 auto;filter:drop-shadow(0 0 30px rgba(224,100,44,.25))}
-#enter{margin-top:26px;font-family:var(--head);font-size:20px;background:none;border:1px solid var(--teal);color:var(--teal);padding:6px 34px;letter-spacing:.5em;display:none;animation:blink 1.2s steps(2) infinite}
+#enter{margin-top:26px;font-family:var(--head);font-size:20px;background:none;border:1px solid var(--teal);color:var(--teal);padding:9px 34px 8px calc(34px + .5em);line-height:1;letter-spacing:.5em;display:none;animation:blink 1.2s steps(2) infinite}
 #enter:hover{background:var(--teal);color:#021a12;animation:none}
 :root{--tex:1}
 #tex{display:contents}
@@ -188,7 +188,7 @@ mix-blend-mode:overlay;opacity:calc(.5*var(--tex))}
 #dock{left:8px;right:8px;bottom:8px;gap:10px;height:56px}#dock .mt{max-width:none}
 .dprog{position:absolute;left:0;right:0;top:-1px;flex:none;min-width:0}.dprog .pl-bar{height:5px;margin:0;border:0}.dprog .mc{display:none}
 .hud{font-size:clamp(8px,2.4vw,11px);letter-spacing:.05em}
-.hud.tl{left:12px;top:30px}.hud.tr{right:12px;top:30px}
+.hud.tl{left:12px;top:10px}.hud.tr{right:12px;top:10px}
 .hud.bl{display:none}
 #hub{inset:46px 0 78px 0}
 #logo{height:100%}
@@ -227,7 +227,7 @@ body.nodock #panel{inset:10px 8px 8px}
       <div id="dock"><img class="pl-art" alt="" onerror="this.style.visibility='hidden'"><div class="mt"><div class="pl-title">LOADING SET...</div><div class="pl-sub">INFORMATION PROGRAM</div></div>
         <div class="ctl"><button class="pbtn" data-pl="prev" aria-label="Previous"></button><button class="pbtn main" data-pl="toggle" aria-label="Play or pause"></button><button class="pbtn" data-pl="next" aria-label="Next"></button></div>
         <div class="dprog"><div class="pl-bar"><i class="pl-fill"></i></div><div class="mc"><span class="pl-time">0:00</span><span class="pl-dur">0:00</span></div></div></div>
-      <div id="panel"><div class="ph"><span id="ptitle">module</span><button id="pclose">ESC / CLOSE</button></div><div class="pb" id="pbody"></div></div>
+      <div id="panel"><div class="ph"><span id="ptitle">module</span><button id="pclose" aria-label="Close" title="Close (Esc)">X</button></div><div class="pb" id="pbody"></div></div>
       <canvas id="noise" width="180" height="180"></canvas><div class="crt"></div>
     </div>
   </section>
